@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>{% block title %} {% endblock %}</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style.css')}}"
+    />
+  </head>
+  <body>
+    {% block content %} {% endblock %}
+  </body>
+</html>
+
+<script>
+  var cropCheckbox = document.getElementById('crop-identification');
+  var diseaseCheckbox = document.getElementById('disease-identification');
+
+  cropCheckbox.addEventListener('change', function () {
+    if (this.checked) {
+      diseaseCheckbox.checked = false;
+    } else {
+      cropCheckbox.checked = true;
+    }
+  });
+
+  diseaseCheckbox.addEventListener('change', function () {
+    if (this.checked) {
+      cropCheckbox.checked = false;
+    } else {
+      diseaseCheckbox.checked = true;
+    }
+  });
+</script>

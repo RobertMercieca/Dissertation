@@ -1,0 +1,11 @@
+{% extends 'base.html'%} {% block title %} Image {% endblock %} {% block
+content%}
+<img
+  src="{{ url_for('static', filename=path)}}"
+  alt="user uploaded image"
+  width="300"
+  height="300"
+/>
+<h1>{{disease_result}}</h1>
+<h1>{% autoescape false %} {{result}} {% endautoescape %}</h1>
+{%endblock %}

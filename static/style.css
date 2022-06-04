@@ -1,0 +1,7 @@
+#upload_btn {
+  padding: 16px 32px;
+  border: none;
+  cursor: pointer;
+  background-color: aqua;
+  text-transform: uppercase;
+}

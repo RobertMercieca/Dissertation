@@ -1,0 +1,77 @@
+{% extends 'base.html'%} {% block title %} Upload {% endblock %} {% block
+content%}
+<style>
+  .upload_btn {
+  cursor: pointer;
+}
+
+.file {
+  display: none;
+}
+
+.upload_label {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+</style>
+<div>
+  <h1>Crop and Disease Identification</h1>
+  <div>
+    <p>List of available crops for identification are</p>
+      <ul> 
+        <li>Apples</li>
+        <li>Grapes</li>
+        <li>Potatoes</li>
+      </ul>
+  </div>
+
+  <div>
+    <p>List of available diseases for identification are</p>
+      <ul> 
+        <li>Apple Scab</li>
+        <li>Apple Rust</li>
+        <li>Grape Black Rot</li>
+        <li>Grape Black Measles</li>
+        <li>Potato Early Blight</li>
+        <li>Potato Late Blight</li>
+      </ul>
+    </div>
+
+  <form method=post enctype=multipart/form-data>
+    <label for="crop-identification">Crop Identification</label>
+    <input type="checkbox" name="crop-identification" id="crop-identification" checked/>
+    <label for="disease-identification">Disease Identification</label>
+    <input type="checkbox" name="disease-identification" id="disease-identification"/>
+    <label for="file" class="upload_label">Upload image</label>
+    <input type="file" name="file" id="file" class="file" required>
+    <button type=submit class="upload_btn">Submit</button>
+  </form>
+
+  <div>
+    <h2>Instructions</h3>
+    <div>
+      <span>When wanting crop identification</span>
+      <ul>
+        <li>Upload an image where the crop is the main focus of the image by having the object in the centre</li>
+        <li>Only apples, grapes, and potatoes are identifiable, providing different crops will give incorrect results</li>
+      </ul>
+    </div>
+
+    <div>
+      <span>When wanting disease identification</span>
+      <ul>
+        <li>Upload an image of the diseased leaf, ideally having the leaf in the centre of the image</li>
+        <li>Disease identification will work only on listed diseases above, but might still give indication to other diseases, since some diseases tend to be similar</li>
+        <li>The model is also trained for healthy leaves</li>
+      </ul>
+    </div>
+  </div>
+
+  <div>
+    <h2>Info</h2>
+    <p>This program was developed for a thesis study. It makes use of Convoluted Neural Networks to identify different crops and common diseases associated with them</p>
+  </div>
+</div>
+{%endblock %}
